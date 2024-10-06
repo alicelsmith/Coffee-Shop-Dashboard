@@ -102,4 +102,4 @@ Users can easily navigate and interpret the dashboard, making informed decisions
 Stock management becomes more efficient, reducing the likelihood of shortages.
 Staff scheduling and labour cost management are optimised based on data insights.
 
-
+Data set used: https://www.kaggle.com/datasets/viramatv/coffee-shop-data?select=orders.csv
