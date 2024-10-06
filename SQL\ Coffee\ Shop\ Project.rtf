@@ -1,0 +1,911 @@
+mysql> CREATE DATABASE coffeeshop;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> CREATE TABLE orders (
+    -> row_id int NOT NULL,
+    -> order_id varchar(10) NOT NULL,
+    -> created_at datetime NOT NULL,
+    -> item_id varchar(10) NOT NULL,
+    -> quantity int NOT NULL,
+    -> cust_name varchar(50) NOT NULL,
+    -> in_or_out varchar(10),
+    -> PRIMARY KEY (row_id)
+    ->   );
+ERROR 1046 (3D000): No database selected
+mysql> USE coffeeshop;
+Database changed
+mysql> CREATE TABLE orders (
+    -> row_id int NOT NULL,
+    -> order_id varchar(10) NOT NULL,
+    -> created_at datetime NOT NULL,
+    -> item_id varchar(10) NOT NULL,
+    -> quantity int NOT NULL,
+    -> cust_name varchar(50) NOT NULL,
+    -> in_or_out varchar(10),
+    -> PRIMARY KEY (row_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/orders.csv'
+    -> INTO TABLE orders
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 521 rows affected, 521 warnings (0.02 sec)
+Records: 521  Deleted: 0  Skipped: 0  Warnings: 521
+
+mysql> SHOW WARNINGS;
++---------+------+---------------------------------------------------+
+| Level   | Code | Message                                           |
++---------+------+---------------------------------------------------+
+| Warning | 1265 | Data truncated for column 'created_at' at row 1   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 2   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 3   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 4   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 5   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 6   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 7   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 8   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 9   |
+| Warning | 1265 | Data truncated for column 'created_at' at row 10  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 11  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 12  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 13  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 14  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 15  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 16  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 17  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 18  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 19  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 20  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 21  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 22  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 23  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 24  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 25  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 26  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 27  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 28  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 29  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 30  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 31  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 32  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 33  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 34  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 35  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 36  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 37  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 38  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 39  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 40  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 41  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 42  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 43  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 44  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 45  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 46  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 47  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 48  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 49  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 50  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 51  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 52  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 53  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 54  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 55  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 56  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 57  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 58  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 59  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 60  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 61  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 62  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 63  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 64  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 65  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 66  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 67  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 68  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 69  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 70  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 71  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 72  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 73  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 74  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 75  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 76  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 77  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 78  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 79  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 80  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 81  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 82  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 83  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 84  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 85  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 86  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 87  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 88  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 89  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 90  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 91  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 92  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 93  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 94  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 95  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 96  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 97  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 98  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 99  |
+| Warning | 1265 | Data truncated for column 'created_at' at row 100 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 101 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 102 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 103 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 104 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 105 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 106 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 107 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 108 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 109 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 110 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 111 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 112 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 113 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 114 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 115 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 116 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 117 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 118 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 119 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 120 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 121 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 122 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 123 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 124 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 125 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 126 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 127 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 128 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 129 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 130 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 131 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 132 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 133 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 134 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 135 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 136 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 137 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 138 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 139 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 140 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 141 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 142 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 143 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 144 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 145 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 146 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 147 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 148 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 149 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 150 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 151 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 152 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 153 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 154 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 155 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 156 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 157 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 158 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 159 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 160 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 161 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 162 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 163 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 164 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 165 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 166 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 167 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 168 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 169 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 170 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 171 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 172 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 173 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 174 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 175 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 176 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 177 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 178 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 179 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 180 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 181 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 182 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 183 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 184 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 185 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 186 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 187 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 188 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 189 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 190 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 191 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 192 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 193 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 194 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 195 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 196 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 197 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 198 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 199 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 200 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 201 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 202 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 203 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 204 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 205 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 206 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 207 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 208 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 209 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 210 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 211 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 212 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 213 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 214 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 215 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 216 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 217 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 218 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 219 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 220 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 221 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 222 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 223 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 224 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 225 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 226 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 227 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 228 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 229 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 230 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 231 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 232 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 233 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 234 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 235 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 236 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 237 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 238 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 239 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 240 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 241 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 242 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 243 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 244 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 245 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 246 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 247 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 248 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 249 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 250 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 251 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 252 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 253 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 254 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 255 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 256 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 257 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 258 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 259 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 260 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 261 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 262 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 263 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 264 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 265 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 266 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 267 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 268 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 269 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 270 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 271 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 272 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 273 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 274 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 275 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 276 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 277 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 278 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 279 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 280 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 281 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 282 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 283 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 284 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 285 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 286 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 287 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 288 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 289 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 290 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 291 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 292 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 293 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 294 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 295 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 296 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 297 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 298 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 299 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 300 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 301 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 302 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 303 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 304 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 305 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 306 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 307 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 308 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 309 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 310 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 311 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 312 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 313 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 314 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 315 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 316 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 317 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 318 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 319 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 320 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 321 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 322 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 323 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 324 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 325 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 326 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 327 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 328 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 329 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 330 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 331 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 332 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 333 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 334 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 335 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 336 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 337 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 338 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 339 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 340 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 341 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 342 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 343 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 344 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 345 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 346 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 347 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 348 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 349 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 350 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 351 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 352 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 353 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 354 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 355 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 356 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 357 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 358 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 359 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 360 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 361 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 362 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 363 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 364 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 365 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 366 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 367 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 368 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 369 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 370 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 371 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 372 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 373 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 374 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 375 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 376 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 377 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 378 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 379 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 380 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 381 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 382 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 383 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 384 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 385 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 386 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 387 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 388 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 389 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 390 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 391 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 392 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 393 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 394 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 395 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 396 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 397 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 398 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 399 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 400 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 401 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 402 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 403 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 404 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 405 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 406 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 407 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 408 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 409 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 410 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 411 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 412 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 413 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 414 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 415 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 416 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 417 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 418 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 419 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 420 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 421 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 422 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 423 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 424 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 425 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 426 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 427 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 428 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 429 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 430 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 431 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 432 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 433 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 434 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 435 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 436 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 437 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 438 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 439 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 440 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 441 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 442 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 443 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 444 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 445 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 446 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 447 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 448 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 449 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 450 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 451 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 452 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 453 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 454 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 455 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 456 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 457 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 458 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 459 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 460 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 461 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 462 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 463 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 464 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 465 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 466 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 467 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 468 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 469 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 470 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 471 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 472 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 473 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 474 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 475 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 476 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 477 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 478 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 479 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 480 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 481 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 482 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 483 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 484 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 485 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 486 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 487 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 488 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 489 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 490 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 491 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 492 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 493 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 494 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 495 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 496 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 497 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 498 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 499 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 500 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 501 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 502 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 503 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 504 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 505 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 506 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 507 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 508 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 509 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 510 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 511 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 512 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 513 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 514 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 515 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 516 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 517 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 518 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 519 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 520 |
+| Warning | 1265 | Data truncated for column 'created_at' at row 521 |
++---------+------+---------------------------------------------------+
+521 rows in set (0.00 sec)
+
+mysql> select * from order limit 10;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order limit 10' at line 1
+mysql> select * from orders limit 10;
++--------+----------+---------------------+---------+----------+-----------+-----------+
+| row_id | order_id | created_at          | item_id | quantity | cust_name | in_or_out |
++--------+----------+---------------------+---------+----------+-----------+-----------+
+|      1 | ORD001   | 0000-00-00 00:00:00 | It008   |        1 | Alex      | out      |
+|      2 | ORD002   | 0000-00-00 00:00:00 | It014   |        4 | Jordan    | in       |
+|      3 | ORD003   | 0000-00-00 00:00:00 | It008   |        4 | Taylor    | out      |
+|      4 | ORD004   | 0000-00-00 00:00:00 | It019   |        2 | Casey     | out      |
+|      5 | ORD005   | 0000-00-00 00:00:00 | It024   |        4 | Jamie     | out      |
+|      6 | ORD006   | 0000-00-00 00:00:00 | It001   |        4 | Morgan    | in       |
+|      7 | ORD006   | 0000-00-00 00:00:00 | It016   |        3 | Morgan    | in       |
+|      8 | ORD007   | 0000-00-00 00:00:00 | It005   |        4 | Riley     | out      |
+|      9 | ORD007   | 0000-00-00 00:00:00 | It020   |        3 | Riley     |          |
+|     10 | ORD008   | 0000-00-00 00:00:00 | It006   |        4 | Cameron   | in       |
++--------+----------+---------------------+---------+----------+-----------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> truncate table orders;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/orders.csv'
+    -> INTO TABLE orders
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 521 rows affected (0.01 sec)
+Records: 521  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from orders limit 10;
++--------+----------+---------------------+---------+----------+-----------+-----------+
+| row_id | order_id | created_at          | item_id | quantity | cust_name | in_or_out |
++--------+----------+---------------------+---------+----------+-----------+-----------+
+|      1 | ORD001   | 2024-02-12 07:04:00 | It008   |        1 | Alex      | out      |
+|      2 | ORD002   | 2024-02-12 07:09:00 | It014   |        4 | Jordan    | in       |
+|      3 | ORD003   | 2024-02-12 07:14:00 | It008   |        4 | Taylor    | out      |
+|      4 | ORD004   | 2024-02-12 07:18:00 | It019   |        2 | Casey     | out      |
+|      5 | ORD005   | 2024-02-12 07:23:00 | It024   |        4 | Jamie     | out      |
+|      6 | ORD006   | 2024-02-12 07:28:00 | It001   |        4 | Morgan    | in       |
+|      7 | ORD006   | 2024-02-12 07:28:00 | It016   |        3 | Morgan    | in       |
+|      8 | ORD007   | 2024-02-12 07:33:00 | It005   |        4 | Riley     | out      |
+|      9 | ORD007   | 2024-02-12 07:33:00 | It020   |        3 | Riley     |          |
+|     10 | ORD008   | 2024-02-12 07:39:00 | It006   |        4 | Cameron   | in       |
++--------+----------+---------------------+---------+----------+-----------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE item (
+    -> item_id varchar(10) NOT NULL,
+    -> sku varchar(20) NOT NULL,
+    -> item_name varchar(100) NOT NULL,
+    -> item_cat varchar(100) NOT NULL,
+    -> item_size varchar(10) NOT NULL,
+    -> item_price decimal(10,2) NOT NULL,
+    -> PRIMARY KEY (item_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/items.csv'
+    -> INTO TABLE item
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 24 rows affected (0.05 sec)
+Records: 24  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from item limit 10;
++---------+------------+---------------------+--------------+-----------+------------+
+| item_id | sku        | item_name           | item_cat     | item_size | item_price |
++---------+------------+---------------------+--------------+-----------+------------+
+| It001   | HDR-CAP-MD | Cappuccino          | "Hot Drinks" | Medium    |       3.45 |
+| It002   | HDR-CAP-LG | Cappuccino          | "Hot Drinks" | Large     |       3.75 |
+| It003   | HDR-LAT-MD | Latte               | "Hot Drinks" | Medium    |       3.45 |
+| It004   | HDR-LAT-LG | Latte               | "Hot Drinks" | Large     |       3.75 |
+| It005   | HDR-FLT    | "Flat White"        | "Hot Drinks" | N/A       |       3.15 |
+| It006   | HDR-CRM-MD | "Caramel Macchiato" | "Hot Drinks" | Medium    |       4.20 |
+| It007   | HDR-CRM-LG | "Caramel Macchiato" | "Hot Drinks" | Large     |       4.60 |
+| It008   | HDR-ESP    | Espresso            | "Hot Drinks" | N/A       |       2.15 |
+| It009   | HDR-MOC-MD | Mocha               | "Hot Drinks" | Medium    |       4.00 |
+| It010   | HDR-MOC-LG | Mocha               | "Hot Drinks" | Large     |       4.60 |
++---------+------------+---------------------+--------------+-----------+------------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE ingredients (
+    -> ing_id varchar(10) NOT NULL,
+    -> ing_name varchar(200) NOT NULL,
+    -> ing_weight int NOT NULL,
+    -> ing_meas varchar(20) NOT NULL,
+    -> ing_price decimal(5,2) NOT NULL,
+    -> PRIMARY KEY (ing_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/ingredients.csv'
+    -> INTO TABLE ingredients
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 18 rows affected (0.00 sec)
+Records: 18  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from ingredients limit 10;
++--------+---------------------------------+------------+----------+-----------+
+| ing_id | ing_name                        | ing_weight | ing_meas | ing_price |
++--------+---------------------------------+------------+----------+-----------+
+| ING001 | "Espresso beans"                |       1000 | grams    |     12.00 |
+| ING002 | "Whole Milk"                    |       1000 | ml       |      1.20 |
+| ING003 | Cheddar                         |        500 | grams    |      7.45 |
+| ING004 | Mozzarella                      |        500 | grams    |      5.00 |
+| ING005 | "Whipped cream"                 |        300 | ml       |      1.35 |
+| ING006 | "Vanilla syrup"                 |       1000 | ml       |     14.52 |
+| ING007 | "Barista chocolate syrup"       |       1000 | ml       |      8.49 |
+| ING008 | "Barista white chocolate syrup" |       1000 | ml       |      8.49 |
+| ING009 | "Barista caramel sauce"         |       1000 | ml       |      8.49 |
+| ING010 | Sugar                           |       1000 | grams    |      1.50 |
++--------+---------------------------------+------------+----------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE recipe (
+    -> row_id int NOT NULL,
+    -> recipe_id varchar(20) NOT NULL,
+    -> ing_id varchar(10) NOT NULL,
+    -> quantity int NOT NULL,
+    -> PRIMARY KEY (row_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/recipe.csv'
+    -> INTO TABLE recipe
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 61 rows affected (0.00 sec)
+Records: 61  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from recipe limit 10;
++--------+------------+--------+----------+
+| row_id | recipe_id  | ing_id | quantity |
++--------+------------+--------+----------+
+|      1 | HDR-CAP-MD | ING001 |        8 |
+|      2 | HDR-CAP-MD | ING002 |      130 |
+|      3 | HDR-CAP-LG | ING001 |       10 |
+|      4 | HDR-CAP-LG | ING002 |      180 |
+|      5 | HDR-LAT-MD | ING001 |        8 |
+|      6 | HDR-LAT-MD | ING002 |      130 |
+|      7 | HDR-LAT-LG | ING001 |       10 |
+|      8 | HDR-LAT-LG | ING002 |      180 |
+|      9 | HDR-FLT    | ING001 |        8 |
+|     10 | HDR-FLT    | ING002 |      160 |
++--------+------------+--------+----------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE inventory (
+    -> inv_id varchar(10) NOT NULL,
+    -> ing_id varchar(10) NOT NULL,
+    -> quantity int NOT NULL,
+    -> PRIMARY KEY (inv_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/inventory.csv'
+    -> INTO TABLE inventory
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 18 rows affected (0.00 sec)
+Records: 18  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from inventory limit 10;
++--------+--------+----------+
+| inv_id | ing_id | quantity |
++--------+--------+----------+
+| inv001 | ING001 |        4 |
+| inv002 | ING002 |       55 |
+| inv003 | ING003 |        1 |
+| inv004 | ING004 |        4 |
+| inv005 | ING005 |        7 |
+| inv006 | ING006 |        3 |
+| inv007 | ING007 |        3 |
+| inv008 | ING008 |        4 |
+| inv009 | ING009 |        1 |
+| inv010 | ING010 |        4 |
++--------+--------+----------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE rota (
+    -> row_id int NOT NULL,
+    -> rota_id varchar(20) NOT NULL,
+    -> date datetime NOT NULL,
+    -> shift_id varchar(20) NOT NULL,
+    -> staff_id varchar(20) NOT NULL,
+    -> PRIMARY KEY (row_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/rota.csv'
+    -> INTO TABLE rota
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 18 rows affected (0.00 sec)
+Records: 18  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from rota limit 10;
++--------+---------+---------------------+----------+----------+
+| row_id | rota_id | date                | shift_id | staff_id |
++--------+---------+---------------------+----------+----------+
+|      1 | RT001   | 2024-02-12 00:00:00 | SH001    | ST001    |
+|      2 | RT001   | 2024-02-12 00:00:00 | SH001    | ST003    |
+|      3 | RT001   | 2024-02-12 00:00:00 | SH002    | ST001    |
+|      4 | RT002   | 2024-02-13 00:00:00 | SH003    | ST002    |
+|      5 | RT002   | 2024-02-13 00:00:00 | SH003    | ST004    |
+|      6 | RT002   | 2024-02-13 00:00:00 | SH004    | ST002    |
+|      7 | RT003   | 2024-02-14 00:00:00 | SH005    | ST001    |
+|      8 | RT003   | 2024-02-14 00:00:00 | SH005    | ST003    |
+|      9 | RT003   | 2024-02-14 00:00:00 | SH006    | ST003    |
+|     10 | RT004   | 2024-02-15 00:00:00 | SH007    | ST002    |
++--------+---------+---------------------+----------+----------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE TABLE staff (
+    -> staff_id varchar(20) NOT NULL,
+    -> first_name varchar(50) NOT NULL,
+    -> last_name varchar(50) NOT NULL,
+    -> position varchar(100) NOT NULL,
+    -> sal_per_hour decimal (5,2),
+    -> PRIMARY KEY (staff_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/staff.csv'
+    -> INTO TABLE staff
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from staff;
++----------+------------+-----------+----------+--------------+
+| staff_id | first_name | last_name | position | sal_per_hour |
++----------+------------+-----------+----------+--------------+
+| ST001    | Emma       | Johnson   | Barista  |        10.00 |
+| ST002    | Liam       | Smith     | Barista  |        10.00 |
+| ST003    | Olivia     | Williams  | Barista  |        10.00 |
+| ST004    | Noah       | Brown     | Barista  |        10.00 |
++----------+------------+-----------+----------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE shift (
+    -> shift_id varchar(20) NOT NULL,
+    -> day_of_the_week varchar(10) NOT NULL,
+    -> start_time time NOT NULL,
+    -> end_time time NOT NULL,
+    -> PRIMARY KEY (shift_id)
+    ->   );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/shift.csv'
+    -> INTO TABLE shift
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 12 rows affected (0.00 sec)
+Records: 12  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from shift limit 10;
++----------+-----------------+------------+----------+
+| shift_id | day_of_the_week | start_time | end_time |
++----------+-----------------+------------+----------+
+| SH001    | Monday          | 07:00:00   | 13:00:00 |
+| SH002    | Monday          | 13:00:00   | 17:00:00 |
+| SH003    | Tuesday         | 07:00:00   | 13:00:00 |
+| SH004    | Tuesday         | 13:00:00   | 17:00:00 |
+| SH005    | Wednesday       | 07:00:00   | 13:00:00 |
+| SH006    | Wednesday       | 13:00:00   | 17:00:00 |
+| SH007    | Thursday        | 07:00:00   | 13:00:00 |
+| SH008    | Thursday        | 13:00:00   | 17:00:00 |
+| SH009    | Friday          | 07:00:00   | 13:00:00 |
+| SH010    | Friday          | 13:00:00   | 17:00:00 |
++----------+-----------------+------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> truncate table items;
+ERROR 1146 (42S02): Table 'coffeeshop.items' doesn't exist
+mysql> truncate table item;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/items.csv'
+    -> INTO TABLE item
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 28 rows affected (0.01 sec)
+Records: 28  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> truncate table inventory;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE inventory (
+    -> inv_id varchar(10) NOT NULL,
+    -> ing_id varchar(10) NOT NULL,
+    -> quantity int NOT NULL,
+    -> PRIMARY KEY (inv_id)
+    ->   );
+ERROR 1050 (42S01): Table 'inventory' already exists
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/inventory.csv'
+    -> INTO TABLE inventory
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 22 rows affected (0.00 sec)
+Records: 22  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> truncate table ingredients;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/ingredients.csv'
+    -> INTO TABLE ingredients
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 22 rows affected (0.00 sec)
+Records: 22  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> truncate table recipe;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> LOAD DATA LOCAL INFILE '/Users/alice/Downloads/archive\ \(6\)/recipe.csv'
+    -> INTO TABLE recipe
+    -> FIELDS TERMINATED BY ','
+    -> LINES TERMINATED BY '\n'
+    -> IGNORE 1 ROWS;
+Query OK, 65 rows affected (0.01 sec)
+Records: 65  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> DELETE FROM orders
+    -> where order_id = ORD033;
+ERROR 1054 (42S22): Unknown column 'ORD033' in 'where clause'
+mysql> DELETE FROM orders
+    -> WHERE order_id = 'ORD033';
+Query OK, 1 row affected (0.03 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> EXIT;
